@@ -1,0 +1,26 @@
+{
+  "name": "yahoo-finance-api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rinoj/yahoo-finance-api.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rinoj/yahoo-finance-api/issues"
+  },
+  "homepage": "https://github.com/rinoj/yahoo-finance-api#readme",
+  "dependencies": {
+    "google-protobuf": "^3.15.3",
+    "mysql": "^2.18.1",
+    "websocket": "^1.0.33",
+    "ws": "^7.4.3"
+  }
+}

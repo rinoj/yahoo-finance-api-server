@@ -77,7 +77,6 @@ ws.on('message', function incoming(data, flags) {
       "priceHint": message.getPricehint()
     }
 	
-    
     con.query("SELECT * FROM trades", function (err, result, fields) {
       if (err) throw err;
 		for (i = 0; i < result.length; i++) {
@@ -123,7 +122,7 @@ ws.on('message', function incoming(data, flags) {
 				}
 			}
 		}
-    });*/
+    });
     wss.on('connection', function connection(ws) {
 		setInterval(function(){ws.send(JSON.stringify(myObj));}, 1000);
     });
