@@ -2,6 +2,7 @@ const PricingData = require('./PricingData_pb')
 const WebSocket = require('ws')
 const http = require('http');
 const url = require('url');
+const axios = require('axios');
 const mysql = require('mysql');
 
 const ws = new WebSocket('wss://streamer.finance.yahoo.com/');
@@ -99,9 +100,15 @@ ws.on('message', function incoming(data, flags) {
 					{
 						if(result[i].takeprofit != null && result[i].takeprofit >= myObj.price.toFixed(5)){
 							console.log('takeprofit triggered for BUY');
+							axios.post('http://localhost:8000/api/closetrade', {
+								tradeid: result[i].id,
+							});
 						}
 						if(result[i].stoploss != null && result[i].stoploss <= myObj.price.toFixed(5)){
 							console.log('stoploss triggered for BUY');
+							axios.post('http://localhost:8000/api/closetrade', {
+								tradeid: result[i].id,
+							});
 						}
 						
 					}
@@ -109,9 +116,15 @@ ws.on('message', function incoming(data, flags) {
 					{
 						if(result[i].takeprofit != null && result[i].takeprofit <= myObj.price.toFixed(5)){
 							console.log('takeprofit triggered for BUY');
+							axios.post('http://localhost:8000/api/closetrade', {
+								tradeid: result[i].id,
+							});
 						}
 						if(result[i].stoploss != null && result[i].stoploss >= myObj.price.toFixed(5)){
 							console.log('stoploss triggered for BUY');
+							axios.post('http://localhost:8000/api/closetrade', {
+								tradeid: result[i].id,
+							});
 						}
 					}
 					
